@@ -53,16 +53,15 @@ class wechat_scraper {
                         body.appendChild(background);
                     }
                 })
-            });
-
-            // Replace img elements with new img elements with src attributes set to data-src
-            await page.evaluate(() => {
+                // Replace img elements with new img elements with src attributes set to data-src
                 const qrCodeDiv = document.querySelector('.qr_code_pc');
                 if (qrCodeDiv) {
                     qrCodeDiv.remove();
                 }
-
-
+                const relatedDiv = document.querySelector('.related_container')
+                if(relatedDiv){
+                    relatedDiv.remove();
+                }
                 const imgElements = document.querySelectorAll('img');
                 imgElements.forEach((img) => {
                     const dataSrc = img.getAttribute('data-src');
@@ -73,13 +72,12 @@ class wechat_scraper {
                         img.parentNode.replaceChild(newImg, img);
                     }
                 });
-            });
+                
+            })
 
             // Get the updated HTML content of the page
             const htmlContent = await page.content();
-
             await browser.close();
-
             return htmlContent;
         } catch (error) {
             console.error('Error scraping webpage:', error);

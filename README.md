@@ -1,14 +1,17 @@
 ## A Wechat official post scraper built based on JS and pupetteer
-A nodejs module scrapes wechat officals posts and directly display as html webpage by url
+A nodejs module scrapes wechat officals posts and directly display as html webpage by url.
 
+## Copyright Warning
+**Unauthorized use of this tool to scrape content is prohibited. Please ask for permission from content creators before use it for commercial purpose.**
 ## Demo:
 ![demo](/1.png)
 
 ## Installation:
+This package is not on npm, run following command to install.
 ```
 npm i wechat_scrape
 ```
-## Usage:
+## Sample Usage:
 ```
 const scrape = require("wechat_scrape")
 
